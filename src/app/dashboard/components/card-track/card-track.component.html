@@ -1,0 +1,25 @@
+<div *ngIf="track">
+  <p-card
+    header="{{ track.name }}"
+    subheader="Artist: {{ track.artist }}"
+    [style]="{ width: '500px' }"
+    styleClass="p-card-shadow">
+    <ng-template pTemplate="header">
+      <img alt="Card" [src]="track.image" />
+    </ng-template>
+    <p>Album: {{ track.album }}</p>
+    <ng-template pTemplate="footer">
+      <p-button
+        label="Randomized"
+        icon="pi pi-check"
+        (click)="randomized()"></p-button>
+      <p-button
+        *ngIf="track.external"
+        label="Open in Soptify"
+        icon="pi pi-external-link"
+        styleClass="p-button-secondary"
+        [style]="{ 'margin-left': '.5em' }"
+        (click)="openExternal()"></p-button>
+    </ng-template>
+  </p-card>
+</div>
